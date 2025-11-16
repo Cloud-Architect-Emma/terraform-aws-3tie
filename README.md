@@ -49,19 +49,19 @@ User --> ALB --> EC2 Instances --> RDS Database | | | v v v VPC IAM Roles S3 Buc
 Here are key visuals from the deployment process, demonstrating the infrastructure in action.
 
 - **Terraform Plan and Apply Output**: Shows successful resource creation via Terraform CLI.
-  ![Terraform Apply Output](images/terraform-apply.png)
+  ![Terraform Apply Output](images/terraform-apply.PNG)
 
 - **AWS Console: EC2 Instances**: Displays running EC2 instances with custom tags.
-  ![EC2 Instances](images/ec2-instances.png)
+  ![EC2 Instances](images/ec2-instances.PNG)
 
 - **AWS Console: ALB Load Balancer**: Illustrates the ALB setup with healthy targets.
-  ![ALB Load Balancer](images/alb-load-balancer.png)
+  ![ALB Load Balancer](images/alb-load-balancer.PNG)
 
 - **AWS Console: RDS Database**: Confirms the database instance and endpoint.
-  ![RDS Database](images/rds-database.png)
+  ![RDS Database](images/rds-database.PNG)
 
 - **GitHub Actions Workflow**: Highlights automated CI/CD pipeline execution.
-  ![GitHub Actions Workflow](images/github-actions-workflow.png)
+  ![GitHub Actions Workflow](images/github-actions-workflow.PNG)
 
 ##  Project Structure
 
