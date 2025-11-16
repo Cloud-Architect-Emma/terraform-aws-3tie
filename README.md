@@ -17,20 +17,32 @@ The infrastructure deploys a classic 3-tier application stack:
 - **Data Tier**: RDS database for persistent storage.
 - **Supporting Components**: VPC with networking, S3 for static assets, IAM roles for security, CloudWatch for monitoring, and multi-region redundancy.
 
-### Architecture Diagram
 
-```mermaid
-graph TD
-    A[User] --> B[ALB (Public)]
-    B --> C[EC2 Instances (Web/App Servers)]
-    C --> D[RDS (Database)]
-    E[VPC] --> F[Subnets: Public/Private]
-    F --> B
-    F --> C
-    F --> D
-    G[S3 Bucket] --> C
-    H[IAM Roles] --> C
-    I[CloudWatch] --> C
-    J[Multi-Region] --> E
-    K[GitHub Actions] --> L[Terraform Apply]
-    L --> E
+### AWS 3-Tier Architecture Diagram
+
++-------------------+     +-------------------+     +-------------------+
+|     User          | --> |   ALB (Public)    | --> |  EC2 Instances    |
+|                   |     |  Load Balancer    |     |  (Web/App Servers)|
++-------------------+     +-------------------+     +-------------------+                                    v                           v
+                        +-------------------+     +-------------------+
+                        |   VPC Networking  |     |   RDS Database    |
+                        | - Subnets (Pub/Priv)|     |  (MySQL/PostgreSQL)|
+                        | - Security Groups |     +-------------------+
+                        | - IGW/NAT         |
+                        +-------------------+
+                                  |
+                                  v
+                        +-------------------+     +-------------------+
+                        |   Supporting      |     |   Multi-Region    |
+                        |   Components      |     |   (us-east-1,     |
+                        | - S3 Bucket       |     |    us-west-2)     |
+                        | - IAM Roles       |     +-------------------+
+                        | - CloudWatch      |
+                        +-------------------+
+                                  ^
+                                  |
+                        +-------------------+
+                        | GitHub Actions    |
+                        | (CI/CD Pipeline)  |
+                        +-------------------+
+                                      
