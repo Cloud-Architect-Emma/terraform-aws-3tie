@@ -61,12 +61,13 @@ Here are key visuals from the deployment process, demonstrating the infrastructu
   ![RDS Database](images/rds-database.PNG)
 
 - **GitHub Actions Workflow**: Highlights automated CI/CD pipeline execution.
-  ![GitHub Actions Workflow](images/github-actions-workflow.PNG)
+  ![GitHub Actions Workflow](images/github-actions-workflow.PNG)     Repo-Structure
 
 ##  Project Structure
 
-terraform-aws-3tier/ ├── main.tf ├── variables.tf ├── outputs.tf ├── terraform.tf ├── modules/ (vpc, alb, ec2, rds, s3) ├── .github/workflows/deploy.yml └── README.md
-
+**Repo-Structure**: Terraform Workspace Structure.
+  ![Terraform Workspace Structure](Repo-Structure/Repo-Structure.PNG)
+  
 ## CI/CD
 
 Uses GitHub Actions for automated deployment. Add AWS secrets to your repo for secure access.
